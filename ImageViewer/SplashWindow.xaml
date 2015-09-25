@@ -1,0 +1,13 @@
+﻿<Window x:Class="ImageViewer.SplashWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SplashWindow" Height="365" Width="558"
+        WindowStyle="None" WindowStartupLocation="CenterScreen" 
+	    ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="splash-transp.jpg"/>
+        </Grid.Background>
+    </Grid>
+</Window>

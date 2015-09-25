@@ -1,0 +1,47 @@
+#ifndef __BOUNDARYFEATURESEXTRACTOR_H_INCLUDED__
+#define __BOUNDARYFEATURESEXTRACTOR_H_INCLUDED__
+
+//forward declared dependencies
+class Boundary;
+class Pair;
+
+//included dependencies
+#include <vector>
+#include "featuresExtractor.h"
+#include "boundaryAngles.h"
+#include "boundaryFeatures.h"
+#include "polygonFeaturesExtractor.h"
+//#include "pixel.h"
+#include "Image.h"
+#include "boundaryContentInfo.h"
+
+using namespace std;
+
+class BoundaryFeaturesExtractor : public FeaturesExtractor
+{
+private:
+	vector<BoundaryFeatures> boundaryFeatures;
+	PolygonFeaturesExtractor pfe;
+	Image* im;
+public:
+	BoundaryFeaturesExtractor(Polygon p_,Image im_);
+
+	double getDistance(Boundary b,bool isEuclidean);
+	double getDistance(Pair a,Pair b,bool isEuclidean);
+
+	BoundaryFeatures getBoundaryFeatures(Boundary b);
+	BoundaryFeatures getBoundaryFeatures(int edgeNum);
+	BoundaryFeatures getBoundaryFeatures(Pair r,Pair l);
+
+	void calculateAllBoundariesFeatures();
+	vector<BoundaryFeatures> getAllBoundariesFeatures();
+
+	BoundaryAngles getBoundaryAngles(Pair r,Pair l);
+	BoundaryAngles getBoundaryAngles(Boundary b);
+	BoundaryAngles getBoundaryAngles(int edgeNum);
+
+	//vector<Pixel> getPixelArray(Pair r,Pair l);
+	BoundaryContentInfo getBoundaryContentInfo(Pair r,Pair l);
+};
+
+#endif

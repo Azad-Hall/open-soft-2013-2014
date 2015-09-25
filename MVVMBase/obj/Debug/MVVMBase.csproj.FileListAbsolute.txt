@@ -1,0 +1,5 @@
+C:\Users\Utkarsh Jaiswal\Documents\Visual Studio 2013\Projects\MVVMBase\bin\Debug\MVVMBase.dll
+C:\Users\Utkarsh Jaiswal\Documents\Visual Studio 2013\Projects\MVVMBase\bin\Debug\MVVMBase.pdb
+C:\Users\Utkarsh Jaiswal\Documents\Visual Studio 2013\Projects\MVVMBase\obj\Debug\MVVMBase.csprojResolveAssemblyReference.cache
+C:\Users\Utkarsh Jaiswal\Documents\Visual Studio 2013\Projects\MVVMBase\obj\Debug\MVVMBase.dll
+C:\Users\Utkarsh Jaiswal\Documents\Visual Studio 2013\Projects\MVVMBase\obj\Debug\MVVMBase.pdb

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="ImageViewer.exe" version="0.0.0.1" publicKeyToken="677e649bebf9e5ce" language="neutral" processorArchitecture="x86" type="win32" />
+  <description asmv2:iconFile="image.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="ImageViewer" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <commandLine file="ImageViewer.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- Options du manifeste de contrôle de compte d'utilisateur
+             Si vous souhaitez modifier le niveau du contrôle de compte d'utilisateur Windows, remplacez le nœud 
+             requestedExecutionLevel par l'une des propositions suivantes.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            La spécification du nœud requestedExecutionLevel désactivera la virtualisation de fichiers et du Registre.
+            Si vous souhaitez utiliser la virtualisation de fichiers et du Registre pour la compatibilité 
+            descendante, supprimez le noeud requestedExecutionLevel.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GongSolutions.Wpf.DragDrop.dll" size="53248">
+      <assemblyIdentity name="GongSolutions.Wpf.DragDrop" version="0.1.3.11" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>r/FU1pNou9LRVBK9v+4cHTlk4jM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ImageViewer.exe" size="776704">
+      <assemblyIdentity name="ImageViewer" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>cDuppKxhz1jk64UDr57asCCy63Y=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MVVMBase.dll" size="7168">
+      <assemblyIdentity name="MVVMBase" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>A7uowR64Gc5b4fnUjOxeHZn65eg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="image.ico" size="370070">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>o4FviwI9jwpw8V3SdGPnQbp67TM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- Une liste de toutes les versions de Windows avec laquelle cette application peut fonctionner. Windows sélectionnera automatiquement l'environnement le plus compatible.-->
+      <!-- Si votre application est conçue pour fonctionner avec Windows 7, supprimez les commentaires du nœud supportedOS suivant-->
+      <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}"/>-->
+    </application>
+  </compatibility>
+<publisherIdentity name="CN=markprades-PC\mark prades" issuerKeyHash="57e88976c026cfd348cedf64a8194ca731939798" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>h5YCqjz3kaJpX0GQf3FLVIiPidg=</DigestValue></Reference></SignedInfo><SignatureValue>leyPCfbyP7XLPAZ6HM5H88aav4jyi5vP294J4heZ1TUTmQ5vAxwpu5EaqfCSZXuJAlAquZ3Gu7x74X8lNhlu0GGRbCB1zEQnzKJjH8mWsT4tPN+QBcQFrxM9f4JY47jqMkHJennCJZ2w+jVElwEY9roAG2klXLBbI52vYGZNFoM=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>oh12EIblvwhIghfmSiouq2KaKF95jS8bvsNTwW9F3sUSLwAJoy157mT7NQLQ11N9/7X8sVuui2vqwMgmVUOAyp3LQY2SXF3mtY4eM9gCKa3fUO+RPwSR5QqO2+PPakyJusvAZQu1+ayA2n8GUIGtaESwAzVMdPCqlfxFrpkRIk8=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="d8898f88544b717f90415f69a291f73caa029687" Description="" Url=""><as:assemblyIdentity name="ImageViewer.exe" version="0.0.0.1" publicKeyToken="677e649bebf9e5ce" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=markprades-PC\mark prades</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>RwsyAKL7/6FlPKx1at86UCFr+8E=</DigestValue></Reference></SignedInfo><SignatureValue>VwlgqdGCjzqoxaVCPabbcAKz9nMoWd8m1djueZKHQO3vcN8Ql4ZZiMpbMpXm0vrHJtn9ibCeet9ffheKe+c/oXu2PzCgqeU50ZnACkWaI08ILcD4zl9QTpPCp8jRM9YG0MnNYKACXtkNA5dneS9TrUSqJfj/NaZic9nWcyoK9sQ=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>oh12EIblvwhIghfmSiouq2KaKF95jS8bvsNTwW9F3sUSLwAJoy157mT7NQLQ11N9/7X8sVuui2vqwMgmVUOAyp3LQY2SXF3mtY4eM9gCKa3fUO+RPwSR5QqO2+PPakyJusvAZQu1+ayA2n8GUIGtaESwAzVMdPCqlfxFrpkRIk8=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB/TCCAWagAwIBAgIQFp2uhOzHg45InbIitVrQzDANBgkqhkiG9w0BAQUFADA9MTswOQYDVQQDHjIAbQBhAHIAawBwAHIAYQBkAGUAcwAtAFAAQwBcAG0AYQByAGsAIABwAHIAYQBkAGUAczAeFw0xMDEyMzAwMDA3MzFaFw0xMTEyMzAwNjA3MzFaMD0xOzA5BgNVBAMeMgBtAGEAcgBrAHAAcgBhAGQAZQBzAC0AUABDAFwAbQBhAHIAawAgAHAAcgBhAGQAZQBzMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiHXYQhuW/CEiCF+ZKKi6rYpooX3mNLxu+w1PBb0XexRIvAAmjLXnuZPs1AtDXU33/tfyxW66La+rAyCZVQ4DKnctBjZJcXea1jh4z2AIprd9Q75E/BJHlCo7b489qTIm6y8BlC7X5rIDafwZQga1oRLADNUx08KqV/EWumREiTwIDAQABMA0GCSqGSIb3DQEBBQUAA4GBADa45aWemGX3is0J1l6vnVus0+aCOU2fOxmjynAd4D+I6SmeQKLmOMzfb9mxkqtswAA8++iHyeWsKNYj9htVG1dowuAczct449+AgqZ7slT2Ft5Nly5IzabqVtq3fa2H2SUznX0DGEYRHp0G2ZNCOg9v0NutvRiPoHvjYXjDetln</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

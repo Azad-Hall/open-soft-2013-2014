@@ -1,0 +1,59 @@
+﻿<Window x:Class="ImageViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vw="clr-namespace:ImageViewer.View"
+        xmlns:vm="clr-namespace:ImageViewer.ViewModel"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d" d:DesignHeight="780" d:DesignWidth="1024"
+        d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel,IsDesignTimeCreatable=True}"
+        xmlns:commands="clr-namespace:ImageViewer.Commands"
+        TextOptions.TextFormattingMode="Display"
+        Title="Paperjoin"
+        AllowDrop="True"
+        Drop="Window_Drop">
+    <!--
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:ac="http://schemas.microsoft.com/expression/2010/interactivity"
+    -->
+    <!--<i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseMove" x:Name="MouseMoveEvent1" >
+            <ac:InvokeCommandAction Command="commands:ApplicationCommands.MouseMoveCommand" CommandParameter="{Binding imageListViewModel}">
+            </ac:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>-->
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:ImageListViewModel}">
+            <vw:ImageListView x:Name="ImageListView"></vw:ImageListView>
+        </DataTemplate>
+    </Window.Resources>
+    <DockPanel>
+        <Menu x:Name="MainMenu"
+              DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem  Header="_Add images to list"
+                           Command="commands:ApplicationCommands.OpenImageFileCommand"
+                           CommandParameter="{Binding imageListViewModel}"></MenuItem>
+                <MenuItem Header="_Delete image from list"
+                          Command="commands:ApplicationCommands.DeleteImageFileCommand"
+                          CommandParameter="{Binding imageListViewModel}"></MenuItem>
+                <MenuItem Header="_Clear image list"
+                          Command="commands:ApplicationCommands.ClearImageFilesCommand"
+                          CommandParameter="{Binding imageListViewModel}"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom"
+                   Height="0"
+                   Width="Auto"
+                    Visibility= "Hidden">
+            <StatusBarItem>
+                <ScrollViewer Name="scrollMain" Height="0" VerticalScrollBarVisibility="Visible">
+                    <TextBlock TextWrapping="Wrap" x:Name="txtName" Text="{Binding Name}"/>
+                </ScrollViewer>
+            </StatusBarItem>
+        </StatusBar>
+        <ContentControl x:Name="ImageListView"
+                        DockPanel.Dock="Right"
+                        Content="{Binding imageListViewModel}" />
+    </DockPanel>
+</Window>

@@ -1,0 +1,1 @@
+g++ Main.cpp Boundary.cpp BoundaryAngles.cpp BoundaryContentInfo.cpp BoundaryFeatures.cpp BoundaryFeaturesExtractor.cpp FeaturesExtractor.cpp Image.cpp Pair.cpp Pixel.cpp Polygon.cpp PolygonFeaturesExtractor.cpp -o featuresObj

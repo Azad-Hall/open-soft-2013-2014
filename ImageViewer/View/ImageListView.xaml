@@ -1,0 +1,210 @@
+﻿<UserControl x:Class="ImageViewer.View.ImageListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:local="clr-namespace:ImageViewer"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             xmlns:dd="clr-namespace:GongSolutions.Wpf.DragDrop;assembly=GongSolutions.Wpf.DragDrop"
+             xmlns:vm="clr-namespace:ImageViewer.ViewModel"
+             xmlns:model="clr-namespace:ImageViewer.Model"
+             x:Name="ImageListViewInstance"
+             xmlns:commands="clr-namespace:ImageViewer.Commands"
+             xmlns:threading="clr-namespace:System.Windows.Threading;assembly=WindowsBase"
+             d:DataContext="{d:DesignInstance Type=vm:ImageListViewModel, IsDesignTimeCreatable=True}"
+             d:DesignHeight="400"
+             d:DesignWidth="1024">
+    <x:Code></x:Code>
+    <UserControl.Resources>
+     <Style x:Key="mytrig">
+            <Setter Property="ToggleButton.Content"
+                    Value="_Fit Screen" />
+            <Style.Triggers>
+                <Trigger Property="ToggleButton.IsChecked"
+                         Value="True">
+
+                    <Setter Property="ToggleButton.Content"
+                            Value="_Real Width" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <DataTemplate x:Key="ImageListDataTemplate"  >
+            
+            <Label Padding="4"
+                   Height="90">
+                <Image ToolTip="{Binding ImageUrl}" SnapsToDevicePixels="True">
+                    <Image.Source>
+                        <BitmapImage UriSource="{Binding ImageUrl}"  
+                                     DecodePixelHeight="90"  
+                                     CacheOption="OnLoad" 
+                                     CreateOptions="DelayCreation"></BitmapImage>
+                    </Image.Source>
+                </Image>
+            </Label>
+        </DataTemplate>
+        <DataTemplate x:Key="ExpanderControlDataTemplate">
+            <Grid Width="Auto"
+                  DataContext="{TemplateBinding DataContext}"
+                  Height="Auto"
+                  Margin="1,1,1,1"
+                  >
+                <TextBlock Text="{Binding Count,FallbackValue=Default}"></TextBlock>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!-- Display image thumbnails -->
+        <Grid Grid.Row="0"
+              x:Name="scrollViewer1">
+            <Grid.Style>
+                <Style>
+                    <Setter Property="Grid.Background"
+                            Value="#FFECECEC" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=BackgroundButton,Path=IsChecked}"
+                                     Value="True">
+                            <Setter Property="Grid.Background"
+                                    Value="Black" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBox Text="{Binding SelectedImageEntity.ImageUrl}"
+                     Grid.Row="0"
+                     x:Name="ImageName"
+                  Background="#FFECECEC"
+                     Foreground="#FF3E3E3E"
+                     VerticalAlignment="Top"
+                     HorizontalAlignment="Stretch"
+                     IsManipulationEnabled="True"
+                     IsReadOnly="True" BorderBrush="#00ABADB3" />
+            <!-- Main Scroll viewer containing the large image -->
+            <ScrollViewer  Grid.Row="1"
+                           x:Name="ImageScrollViewer">
+                <ScrollViewer.Style>
+                    <Style>
+                        <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
+                                Value="Auto" />
+                        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
+                                Value="Auto" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=WidthButton,Path=IsChecked}" Value="True">
+                                <Setter   Property="ScrollViewer.VerticalScrollBarVisibility"
+                                          Value="Disabled" />
+                                <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
+                                        Value="Disabled"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ScrollViewer.Style>
+                <Grid>
+                    <Label Style="{StaticResource DropImageTextBlock}"
+                           Margin="100, 100"
+                           Foreground="#FFB4B4B4"
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center" Content="Drop some image files here."/>
+                    <Image  x:Name="ImageDisplayer"
+                            Source="{Binding SelectedImageEntity.ImageUrl}"
+                            Stretch="Uniform"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            ClipToBounds="False"></Image>
+
+                </Grid>
+
+
+            </ScrollViewer>
+        </Grid>
+        <StackPanel x:Name="ControlSection"
+                    Width="Auto"
+                    Grid.Row="1"
+                    Orientation="Vertical"
+                    VerticalAlignment="Bottom" Background="#FFECECEC">
+            <Expander x:Name="ControlSectionExpander"
+                      IsExpanded="True"
+                      VerticalAlignment="Bottom">
+                <Expander.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding SelectedImageEntityIndex}"></Label>
+                        <Label>/</Label>
+                        <Label  Content="{Binding ImageListCollection.Count}"></Label>
+                    </StackPanel>
+                </Expander.Header>
+                <StackPanel>
+
+                    <ListView  x:Name="ImageListBox"
+                               Background="#FF3E3E3E"
+                               Height="120"
+                           
+                               ContextMenu="{StaticResource ImageListContextMenu}"
+                               SelectionChanged="ImageListBox_SelectionChanged"
+                               HorizontalAlignment="Stretch"
+                               ScrollViewer.CanContentScroll="False"
+                               ItemsSource="{Binding ImageListCollection,IsAsync=True}"
+                               SelectedItem="{Binding SelectedImageEntity}"
+                               ItemTemplate="{StaticResource ImageListDataTemplate}"
+                               IsManipulationEnabled="True"
+                               IsSynchronizedWithCurrentItem="True"
+                               dd:DragDrop.IsDragSource="True"
+                               dd:DragDrop.IsDropTarget="True"
+                               ><ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                </StackPanel>
+            </Expander>
+            <StackPanel HorizontalAlignment="Center"
+                        Orientation="Horizontal" Margin="0">
+                <Button Content="_Add images"
+                        Style="{DynamicResource ButtonStyle1}"
+                        Command="commands:ApplicationCommands.OpenImageFileCommand"
+                        CommandParameter="{Binding}" />
+                <Button Style="{DynamicResource ButtonStyle1}"
+                        Command="commands:ApplicationCommands.SelectPreviousImageCommand"
+                        CommandParameter="{Binding}"
+                        Content="_Join Images" />
+                <Button Style="{DynamicResource ButtonStyle1}"
+                        Command="commands:ApplicationCommands.ClearImageFilesCommand"
+                        CommandParameter="{Binding}"
+                        Content="_Clear Images" />
+                <ToggleButton Width="100"
+                              Command="commands:ApplicationCommands.DummyCommand"
+                              CommandParameter="{Binding}"
+                              x:Name="WidthButton"
+                              Style="{DynamicResource mytrig}">
+                </ToggleButton>
+                <!--<ToggleButton Width="100"
+                              Command="commands:ApplicationCommands.DummyCommand"
+                              CommandParameter="{Binding}"
+                              x:Name="BackgroundButton">
+                    <ToggleButton.Style>
+                        <Style>
+                            <Setter Property="ToggleButton.Content"
+                                    Value="_Dark Background" />
+                            <Style.Triggers>
+                                <Trigger Property="ToggleButton.IsChecked"
+                                         Value="True">
+                                    <Setter Property="ToggleButton.Content"
+                                            Value="_Light Background" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ToggleButton.Style>
+                </ToggleButton>
+                <Label Padding="2" Content="{Binding ElementName=SlideshowSpeedButton,Path=Value}" /> -->
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

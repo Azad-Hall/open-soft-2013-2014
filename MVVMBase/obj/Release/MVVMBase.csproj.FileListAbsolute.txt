@@ -1,0 +1,15 @@
+C:\Users\mark prades\Documents\www\Microsoft\dotnet\wpf\ImageViewer\MVVMBase\bin\Release\MVVMBase.dll
+C:\Users\mark prades\Documents\www\Microsoft\dotnet\wpf\ImageViewer\MVVMBase\bin\Release\MVVMBase.pdb
+C:\Users\mark prades\Documents\www\Microsoft\dotnet\wpf\ImageViewer\MVVMBase\obj\Release\ResolveAssemblyReference.cache
+C:\Users\mark prades\Documents\www\Microsoft\dotnet\wpf\ImageViewer\MVVMBase\obj\Release\MVVMBase.dll
+C:\Users\mark prades\Documents\www\Microsoft\dotnet\wpf\ImageViewer\MVVMBase\obj\Release\MVVMBase.pdb
+C:\Users\Utkarsh Jaiswal\Documents\Visual Studio 2013\Projects\MVVMBase\bin\Release\MVVMBase.dll
+C:\Users\Utkarsh Jaiswal\Documents\Visual Studio 2013\Projects\MVVMBase\bin\Release\MVVMBase.pdb
+C:\Users\Utkarsh Jaiswal\Documents\Visual Studio 2013\Projects\MVVMBase\obj\Release\MVVMBase.csprojResolveAssemblyReference.cache
+C:\Users\Utkarsh Jaiswal\Documents\Visual Studio 2013\Projects\MVVMBase\obj\Release\MVVMBase.dll
+C:\Users\Utkarsh Jaiswal\Documents\Visual Studio 2013\Projects\MVVMBase\obj\Release\MVVMBase.pdb
+C:\Users\Mrinal\Desktop\Paperjoin\MVVMBase\bin\Release\MVVMBase.dll
+C:\Users\Mrinal\Desktop\Paperjoin\MVVMBase\bin\Release\MVVMBase.pdb
+C:\Users\Mrinal\Desktop\Paperjoin\MVVMBase\obj\Release\MVVMBase.csprojResolveAssemblyReference.cache
+C:\Users\Mrinal\Desktop\Paperjoin\MVVMBase\obj\Release\MVVMBase.dll
+C:\Users\Mrinal\Desktop\Paperjoin\MVVMBase\obj\Release\MVVMBase.pdb

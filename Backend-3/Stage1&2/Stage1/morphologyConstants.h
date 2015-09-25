@@ -1,0 +1,13 @@
+#ifndef __MORPHOLOGYCONSTANTS_H_INCLUDED__
+#define __MORPHOLOGYCONSTANTS_H_INCLUDED__
+
+enum MorphologyConstants
+{
+	MORPHO_OPEN = 0,
+	MORPHO_CLOSE = 1,
+	MORPHO_DILATE = 2,
+	MORPHO_ERODE = 3,
+	WHITE = 255
+};
+
+#endif
